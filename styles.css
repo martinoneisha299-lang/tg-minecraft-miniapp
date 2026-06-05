@@ -333,160 +333,46 @@ button { border: 0; cursor: pointer; }
   padding: 4px 2px 0;
 }
 .state.is-active { display: grid; animation: stateIn .32s ease both; }
-.mc-axo-bucket {
-  width: 112px;
-  height: 112px;
+.sheet-icon-stage {
+  position: relative;
+  width: 118px;
+  height: 118px;
   display: grid;
   place-items: center;
   margin: 0 auto 15px;
-  image-rendering: pixelated;
-  animation: axoIconFloat 2.4s ease-in-out infinite;
 }
-
-.mc-axo-svg {
-  width: 112px;
-  height: 112px;
-  image-rendering: pixelated;
-  filter:
-    drop-shadow(0 8px 0 rgba(0, 0, 0, .18))
-    drop-shadow(0 14px 18px rgba(0, 0, 0, .28));
+.sheet-icon-stage::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 34px;
+  background: radial-gradient(circle, rgba(104, 236, 78, .55), transparent 69%);
+  filter: blur(18px);
 }
-
-.axo-body {
-  transform-box: fill-box;
-  transform-origin: center bottom;
-  animation: axoBath 1.25s ease-in-out infinite;
+.sheet-icon {
+  position: relative;
+  z-index: 1;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 26px;
+  box-shadow: 0 18px 46px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.35);
+  animation: iconFloat 2.5s ease-in-out infinite;
 }
-
-.gill-left,
-.gill-right {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: axoGills .55s steps(2) infinite;
+.shine {
+  position: absolute;
+  z-index: 2;
+  width: 92px;
+  height: 92px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, transparent 0 35%, rgba(255,255,255,.35) 45%, transparent 57 100%);
+  transform: translateX(-68px);
+  animation: shine 2.7s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
-
-.gill-right {
-  animation-delay: .12s;
-}
-
-.leg {
-  transform-box: fill-box;
-  transform-origin: top center;
-  animation: axoLegs .7s steps(2) infinite;
-}
-
-.leg-right {
-  animation-delay: .22s;
-}
-
-.axo-water {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: axoWater .8s steps(2) infinite;
-}
-
-.front-splash {
-  animation: axoSplash .7s steps(2) infinite;
-}
-
-.s2 {
-  animation-delay: .18s;
-}
-
-.axo-bubble {
-  fill: rgba(210, 245, 255, .95);
-  animation: axoBubble 1.7s linear infinite;
-}
-
-.b1 {
-  animation-delay: 0s;
-}
-
-.b2 {
-  animation-delay: .35s;
-}
-
-.b3 {
-  animation-delay: .8s;
-}
-
-@keyframes axoIconFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(-1deg);
-  }
-
-  50% {
-    transform: translateY(-4px) rotate(1deg);
-  }
-}
-
-@keyframes axoBath {
-  0%, 100% {
-    transform: translateY(0) rotate(-2deg);
-  }
-
-  50% {
-    transform: translateY(-5px) rotate(2deg);
-  }
-}
-
-@keyframes axoGills {
-  0%, 100% {
-    transform: rotate(-4deg);
-  }
-
-  50% {
-    transform: rotate(5deg);
-  }
-}
-
-@keyframes axoLegs {
-  0%, 100% {
-    transform: rotate(-5deg);
-  }
-
-  50% {
-    transform: rotate(6deg);
-  }
-}
-
-@keyframes axoWater {
-  0%, 100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(3px);
-  }
-}
-
-@keyframes axoSplash {
-  0%, 100% {
-    opacity: .5;
-    transform: translateY(0);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-}
-
-@keyframes axoBubble {
-  0% {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-16px);
-  }
-}
+@keyframes iconFloat { 50% { transform: translateY(-5px) rotate(-1deg); } }
+@keyframes shine { 40%, 100% { transform: translateX(74px); opacity: 0; } 0% { opacity: 0; } 18% { opacity: .9; } }
 .sheet-overline { margin: 0 0 5px; }
 .install-sheet h2 {
   margin: 0;
