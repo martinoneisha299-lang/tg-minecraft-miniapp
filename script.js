@@ -2,6 +2,7 @@ const tg = window.Telegram?.WebApp;
 if (tg) {
   tg.ready();
   tg.expand();
+  tg.disableVerticalSwipes?.();
   tg.setHeaderColor?.('#12050f');
   tg.setBackgroundColor?.('#12050f');
 }
