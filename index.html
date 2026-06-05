@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#12050f" />
+  <title>Pixel Games Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preload" as="image" href="assets/bg.jpg" />
+  <link rel="preload" as="image" href="assets/minecraft-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <canvas id="petals" class="petals" aria-hidden="true"></canvas>
+
+    <section class="topbar" aria-label="Верхняя панель">
+      <div class="brand-chip">
+        <span class="brand-cube" aria-hidden="true"></span>
+        <span>PIXEL DROP</span>
+      </div>
+      <button class="sound-btn" id="fxBtn" type="button" aria-label="Эффекты">
+        <span></span><span></span><span></span>
+      </button>
+    </section>
+
+    <section class="hero">
+      <div class="eyebrow">TELEGRAM MINI APP</div>
+      <h1>Игры в пиксельном стиле</h1>
+      <p>Выбирай игру, запускай установку и смотри красивую iOS-загрузку прямо внутри Telegram.</p>
+    </section>
+
+    <section class="games-panel" aria-label="Список игр">
+      <div class="panel-head">
+        <div>
+          <span class="tiny-label">Список игр</span>
+          <h2>Доступно сейчас</h2>
+        </div>
+        <span class="counter">1</span>
+      </div>
+
+      <button class="game-card" id="openInstall" type="button">
+        <div class="game-icon-wrap">
+          <img src="assets/minecraft-icon.png" class="game-icon" alt="Minecraft" />
+          <span class="icon-glow"></span>
+        </div>
+        <div class="game-info">
+          <strong>Minecraft</strong>
+          <span>Pixel world • iOS style</span>
+        </div>
+        <div class="game-action" aria-hidden="true">›</div>
+      </button>
+    </section>
+  </main>
+
+  <div class="modal-layer" id="modalLayer" aria-hidden="true">
+    <div class="modal-backdrop" id="closeModal"></div>
+    <section class="install-sheet" id="installSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="grabber"></div>
+
+      <div class="state state-start is-active" data-state="start">
+        <div class="sheet-icon-stage">
+          <img src="assets/minecraft-icon.png" class="sheet-icon" alt="Minecraft" />
+          <span class="shine"></span>
+        </div>
+        <p class="sheet-overline">Готово к установке</p>
+        <h2 id="sheetTitle">Minecraft</h2>
+        <p class="sheet-copy">Нажми кнопку ниже — появится плавная загрузка на 30 секунд с процентами.</p>
+        <button class="install-btn" id="installBtn" type="button">
+          <span class="btn-light"></span>
+          <span>Установить</span>
+        </button>
+      </div>
+
+      <div class="state state-loading" data-state="loading">
+        <div class="ios-loader">
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="ring-track" cx="50" cy="50" r="42"></circle>
+            <circle class="ring-progress" id="ringProgress" cx="50" cy="50" r="42"></circle>
+          </svg>
+          <div class="spinner"><i></i></div>
+          <strong id="percentText">0%</strong>
+        </div>
+        <h2>Установка</h2>
+        <p class="sheet-copy" id="loadingText">Подготовка файлов...</p>
+        <div class="progress-shell">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="state state-success" data-state="success">
+        <div class="success-mark" aria-hidden="true">
+          <svg viewBox="0 0 96 96">
+            <path d="M28 49.5 41 62.5 69 34.5" />
+          </svg>
+        </div>
+        <p class="sheet-overline">Завершено</p>
+        <h2>Успешно</h2>
+        <p class="sheet-copy">Готово. Окно можно закрыть или оставить как финальный экран.</p>
+        <button class="done-btn" id="doneBtn" type="button">Готово</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
