@@ -112,6 +112,7 @@ button { border: 0; cursor: pointer; }
   display: grid;
   grid-auto-flow: column;
   place-content: center;
+  align-items: end;
   gap: 3px;
   border-radius: 14px;
   background: rgba(0,0,0,.28);
@@ -119,7 +120,7 @@ button { border: 0; cursor: pointer; }
   backdrop-filter: blur(18px);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 14px 30px rgba(0,0,0,.2);
 }
-.sound-btn span { width: 4px; border-radius: 6px; background: #fff; opacity: .9; }
+.sound-btn span { width: 4px; border-radius: 6px; background: #fff; opacity: .9; transform-origin: bottom; }
 .sound-btn span:nth-child(1){ height: 12px; }
 .sound-btn span:nth-child(2){ height: 20px; }
 .sound-btn span:nth-child(3){ height: 15px; }
