@@ -129,7 +129,7 @@ button { border: 0; cursor: pointer; }
 .sound-btn.is-on span:nth-child(3){ animation-delay: .2s; }
 
 .hero {
-  padding: 12svh 4px 22px;
+  padding: 3svh 4px 16px;
   max-width: 460px;
   animation: heroIn .82s .08s cubic-bezier(.2,.9,.2,1) both;
 }
